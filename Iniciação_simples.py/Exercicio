@@ -1,0 +1,11 @@
+import os
+
+#Limpa o terminal.
+os.system("clear")
+
+
+numero= int(input("digite um numero:"))
+
+# Verificando (Processamento)
+if numero= < 10
+    print("maior que dez:") 
