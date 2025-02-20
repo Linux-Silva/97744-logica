@@ -9,6 +9,16 @@ idade = int(input("Digite sua idade: ")
 altura = float(input("Digite sua altura: ")
 
 #Exibindo dados
-print(f"Nome: {nome}")
-print(f"idade: {idade}")
+if  numero == 10:
+    print("É IGUAL A 10:") 
+
+if numero > 10:
+   print("É MAIOR QUE 10:") 
+
+if numero < 10:    
+   print("É MENOR QUE 10:") 
+
+print("fim")
+
+
 print(f"altura: {altura}")
