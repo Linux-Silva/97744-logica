@@ -22,4 +22,4 @@ if primeiro_numero == segundo_numero:
     print(f"Os números são iguais")
 else:
     print(f"maior número: {maior_numero}")
-    print(f"menor número: {menor_numero}")
+    print(f"menor número: {menor_numero}")W
