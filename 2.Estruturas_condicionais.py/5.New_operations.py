@@ -2,7 +2,7 @@ import os
 
 os.system("clear")
 
-6
+
 print("""
  =========MENIVIS=========
  Código  \t prato     \tvalor
