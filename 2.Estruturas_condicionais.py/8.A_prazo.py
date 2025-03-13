@@ -33,5 +33,5 @@ match forma_de_pagamento:
         print("opção invalida")
 
 print(f"desconto {desconto}")
-print(f"parcelas {parcela}")
+print(f"parcelas {parcelas}")
 print(f"valor {valor}")
