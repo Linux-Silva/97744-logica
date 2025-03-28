@@ -75,7 +75,7 @@ def checar_colisao(tiros, inimigos, pontos, player_pos):
             inimigos_restantes.remove(tuple(tiro))
             kills += 1
             pontos += 15
-            inimigos_restantes.add((player_pos[0], player_pos[1] + 2))  # Novo inimigo abaixo do jogador
+            inimigos_restantes.add((random.randint(0, 19), player_pos[1] + 2))  # Novo inimigo abaixo do jogador
         else:
             tiros_restantes.append(tiro)
     return tiros_restantes, list(inimigos_restantes), pontos
@@ -93,12 +93,6 @@ def jogo():
     while True:
         limpar_tela()
         desenhar_mapa(player_pos, inimigos, tiros, fase, kills, pontos, vida)
-        
-        if kills >= fase * 5:
-            avancar = input("Você atingiu os kills necessários! Deseja avançar para a próxima fase? (s/n): ")
-            if avancar.lower() == 's':
-                fase += 1
-                inimigos.update({(random.randint(0, 19), random.randint(0, 5)) for _ in range(fase * 5)})
         
         comando = input("Use 'a', 'd', 'w', 's' para mover, 'r' para atirar, 'quit' para sair: ")
         
