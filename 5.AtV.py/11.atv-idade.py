@@ -6,12 +6,12 @@ nome = ""
 idade = 0
 salario = 0.0
 genero = ""
-total_salario = 0.0
+tsoma_salario = 0.0
 total_idade = 0
-mulheres_salario_alto = 0
 contador_pessoas = 0
 maior_idade = 0
-menor_idade = 100
+menor_idade = 9999
+mulheres5k = 0
 
 while True:
     print("""
@@ -35,7 +35,7 @@ while True:
                 print("Você escolheu: Exibir resultados")
                 print(f"Nome: {nome}") 
                 print(f"Idade: {idade}") 
-                print(f"Salario: {salario}") 
+                print(f"Salario: {salario}")
                 print(f"Gênero: {genero}") 
             case 3:
                 print("Você escolheu: Sair")
