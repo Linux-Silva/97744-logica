@@ -9,8 +9,9 @@ while True:
     3\tstrogonoff          \t\tR$18,00
     4\tbife acebolado      \t\tR$15,00
     5\tPão com ovo         \t\tR$5,00
+  
     """)
-    
+  o
     match opcao:
       case 1:
         prato = "picanha"
