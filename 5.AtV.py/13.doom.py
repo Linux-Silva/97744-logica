@@ -66,8 +66,7 @@ def disparar(player_pos, tiros, inimigos):
 def mover_tiros(tiros):
     return [[x, y - 1] for x, y in tiros if y - 1 >= 0]
 
-def checar_colisao(tiros, inimigos, pontos, player_pos):
-    global kills
+def checar_colisao(tiros, inimigos, pontos, player_pos, kills):
     tiros_restantes = []
     inimigos_restantes = set(inimigos)
     for tiro in tiros:
@@ -75,20 +74,19 @@ def checar_colisao(tiros, inimigos, pontos, player_pos):
             inimigos_restantes.remove(tuple(tiro))
             kills += 1
             pontos += 15
-            inimigos_restantes.add((random.randint(0, 19), player_pos[1] + 2))  # Novo inimigo abaixo do jogador
+            inimigos_restantes.add((random.randint(0, 19), player_pos[1] + 2))
         else:
             tiros_restantes.append(tiro)
-    return tiros_restantes, list(inimigos_restantes), pontos
+    return tiros_restantes, list(inimigos_restantes), pontos, kills
 
 def jogo():
-    global kills
     fase = 1
     player_pos = [10, 9]
     tiros = []
     pontos = 0
     kills = 0
     vida = 100
-    inimigos = {(random.randint(0, 19), random.randint(0, 5)) for _ in range(5)}
+    inimigos = {(random.randint(0, 19), random.randint(0, 5)) for _ in range(3)}  # Começa com 3 inimigos
     
     while True:
         limpar_tela()
@@ -106,13 +104,13 @@ def jogo():
         mover_jogador(player_pos, comando, inimigos)
         inimigos = mover_inimigos(inimigos, player_pos)
         tiros = mover_tiros(tiros)
-        tiros, inimigos, pontos = checar_colisao(tiros, inimigos, pontos, player_pos)
+        tiros, inimigos, pontos, kills = checar_colisao(tiros, inimigos, pontos, player_pos, kills)
         
         if tuple(player_pos) in inimigos:
-            vida -= 5  # Perde 5 de vida ao colidir com inimigo
-            if vida <= 0:
-                print("Game Over! Sua vida chegou a 0.")
-                break
+            limpar_tela()
+            desenhar_mapa(player_pos, inimigos, tiros, fase, kills, pontos, vida)
+            print("Game Over! Você foi atingido por um inimigo!")
+            break
         
         time.sleep(0.1)
     
