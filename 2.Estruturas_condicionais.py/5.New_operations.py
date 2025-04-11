@@ -39,9 +39,3 @@ match opcao :
 print()
 print(f"prato: {prato}")
 print(f"valor: R$ {valor: .2f}")
-
-
-
-
-
-
